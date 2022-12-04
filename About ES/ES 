@@ -320,3 +320,41 @@ To delete a single document:
 
 ** $ curl -XDELETE 'localhost:9200/index/type/document'
 Copy
+
+
+
+
+# Install Elasticsearch on Ubuntu
+sudo apt update
+sudo apt-get install apt-transport-http
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo add-apt-repository "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
+sudo apt update
+sudo apt install elasticsearch
+To start Elasticsearch process
+sudo /etc/init.d/elasticsearch start
+sudo /etc/init.d/elasticsearch status
+Test setup
+curl -X GET "http://localhost:9200/?pretty"
+
+
+
+** steps to edit yml file :
+
+-- sudo nano /etc/elasticsearch/elasticsearch.yml
+
+Uncomment the node.name line
+
+-- Change network.host to 0.0.0.0, discovery.seed.hosts to [“127.0.0.1”], and cluster.initial_master_nodes to [“node-1”]
+
+When done, quit nano, then type :ctrl-x, type yes
+
+-- sudo /bin/systemctl daemon-reload
+
+-- sudo /bin/systemctl enable elasticsearch.service
+
+-- sudo /bin/systemctl restart elasticsearch.service
+
+
+query URL:
+http://localhost:9200/employee/_doc/_search?q=Saayan
