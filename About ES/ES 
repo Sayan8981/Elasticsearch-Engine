@@ -370,6 +370,11 @@ https://docs.apinizer.com/elasticsearch-simple-authentication-configuration-1681
 /usr/share/elasticsearch/bin/elasticsearch-certutil ca
 /usr/share/elasticsearch/bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12
 
+sudo vim /etc/elasticsearch/elasticsearch.yml ->
+-- xpack.security.transport.ssl.enabled : true
+-- xpack.security.enabled: true
+
+
 root@saayan8981-Aspire-E1-531:/# /usr/share/elasticsearch/bin/elasticsearch-setup-passwords interactive
 Initiating the setup of passwords for reserved users elastic,apm_system,kibana,kibana_system,logstash_system,beats_system,remote_monitoring_user.
 You will be prompted to enter passwords as the process progresses.
