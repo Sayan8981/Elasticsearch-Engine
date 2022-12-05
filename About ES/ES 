@@ -357,4 +357,6 @@ When done, quit nano, then type :ctrl-x, type yes
 
 
 query URL:
-http://localhost:9200/employee/_doc/_search?q=Saayan
+-- http://localhost:9200/employee/_doc/_search?q=Saayan
+
+** https://www.compose.com/articles/using-query-string-queries-in-elasticsearch/
